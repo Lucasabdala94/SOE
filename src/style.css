@@ -8,7 +8,8 @@ body {
 }
 .contenedor {
   display: flex;
-  justify-content: space-around;
+  gap: 10px;
+  justify-content: center;
   color: aliceblue;
 }
 .contenedorinput {
@@ -28,4 +29,5 @@ body {
   border-radius: 4px;
   border: none;
   outline: none;
+  font-size: 18px;
 }
