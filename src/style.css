@@ -30,4 +30,10 @@ body {
   border: none;
   outline: none;
   font-size: 18px;
+  text-align: center;
+}
+.Input::placeholder {
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
 }

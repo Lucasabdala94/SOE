@@ -17,13 +17,13 @@ export default function App() {
       <div className="contenedor">
         <div className="contenedorinput">
           <label>ARRANQUE</label>
-          <input className="Input"></input>
+          <input className="Input" placeholder="MM : SS . MILISEG."></input>
           <label>FASES</label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>ARRANQUE</label>
-          <input className="Input"></input>
+          <input className="Input" placeholder="MM : SS . MILISEG."></input>
           <label>FASES</label>
           <input className="Input"></input>
         </div>
@@ -70,21 +70,25 @@ export default function App() {
       </div>
       <div className="contenedor">
         <div className="contenedorinput">
-          <label>CERRADO</label>
+          <label>INT. CERRADO</label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
-          <label>CERRADO</label>
+          <label>INT. CERRADO</label>
           <input className="Input"></input>
         </div>
       </div>
       <div className="contenedor">
         <div className="contenedorinput">
           <label>ARRANQUE</label>
+          <input className="Input" placeholder="MM:SS.MILISEG."></input>
+          <label>FASES</label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>ARRANQUE</label>
+          <input className="Input" placeholder="MM:SS.MILISEG."></input>
+          <label>FASES</label>
           <input className="Input"></input>
         </div>
       </div>
@@ -105,6 +109,16 @@ export default function App() {
         </div>
         <div className="contenedorinput">
           <label>RECEPCION</label>
+          <input className="Input"></input>
+        </div>
+      </div>
+      <div className="contenedor">
+        <div className="contenedorinput">
+          <label>ESTADO INT.t</label>
+          <input className="Input"></input>
+        </div>
+        <div className="contenedorinput">
+          <label>ESTADO INT.</label>
           <input className="Input"></input>
         </div>
       </div>
