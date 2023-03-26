@@ -114,7 +114,7 @@ export default function App() {
       </div>
       <div className="contenedor">
         <div className="contenedorinput">
-          <label>ESTADO INT.t</label>
+          <label>ESTADO INT.</label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
