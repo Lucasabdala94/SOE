@@ -15,27 +15,47 @@ export default function App() {
         </div>
       </div>
       <div className="contenedor">
-        <div className="contenedorinput">
-          <label>ARRANQUE</label>
-          <input className="Input" placeholder="MM : SS . MILISEG."></input>
-          <label>FASES</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>FASES</label>
+            <input className="Input"></input>
+          </div>
+          <div className="contenedorinput">
+            <label>ARRANQUE</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
         </div>
-        <div className="contenedorinput">
-          <label>ARRANQUE</label>
-          <input className="Input" placeholder="MM : SS . MILISEG."></input>
-          <label>FASES</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>ARRANQUE</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
+          <div className="contenedorinput">
+            <label>FASES</label>
+            <input className="Input"></input>
+          </div>
         </div>
       </div>
       <div className="contenedor">
-        <div className="contenedorinput">
-          <label>EMISION</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>ESCALON</label>
+            <input className="Input"></input>
+          </div>
+          <div className="contenedorinput">
+            <label>EMISION</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
         </div>
-        <div className="contenedorinput">
-          <label>EMISION</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>EMISION</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
+          <div className="contenedorinput">
+            <label>ESCALON</label>
+            <input className="Input"></input>
+          </div>
         </div>
       </div>
       <div className="contenedor">
@@ -79,27 +99,47 @@ export default function App() {
         </div>
       </div>
       <div className="contenedor">
-        <div className="contenedorinput">
-          <label>ARRANQUE</label>
-          <input className="Input" placeholder="MM:SS.MILISEG."></input>
-          <label>FASES</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>FASES</label>
+            <input className="Input"></input>
+          </div>
+          <div className="contenedorinput">
+            <label>ARRANQUE</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
         </div>
-        <div className="contenedorinput">
-          <label>ARRANQUE</label>
-          <input className="Input" placeholder="MM:SS.MILISEG."></input>
-          <label>FASES</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>ARRANQUE</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
+          <div className="contenedorinput">
+            <label>FASES</label>
+            <input className="Input"></input>
+          </div>
         </div>
       </div>
       <div className="contenedor">
-        <div className="contenedorinput">
-          <label>EMISION</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>ESCALON</label>
+            <input className="Input"></input>
+          </div>
+          <div className="contenedorinput">
+            <label>EMISION</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
         </div>
-        <div className="contenedorinput">
-          <label>EMISION</label>
-          <input className="Input"></input>
+        <div className="contenedorinput-2">
+          <div className="contenedorinput">
+            <label>EMISION</label>
+            <input className="Input" placeholder="MM : SS . MILISEG."></input>
+          </div>
+          <div className="contenedorinput">
+            <label>ESCALON</label>
+            <input className="Input"></input>
+          </div>
         </div>
       </div>
       <div className="contenedor">
