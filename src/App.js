@@ -64,19 +64,10 @@ export default function App() {
   const formatTime = (inputValue) => {
     // Aplicar el formato "minutos:segundos:milisegundos"
     let formattedTime = inputValue.replace(/\D/g, ''); // Eliminar caracteres no numéricos
-    if (formattedTime.length > 6) {
-      formattedTime = formattedTime.slice(0, 6); // Limitar a 6 caracteres
-    }
-    formattedTime = formattedTime.replace(/(\d{2})(\d{2})(\d{2})/, '$1:$2:$3'); // Insertar los separadores
-    return formattedTime;
-  };
-  const formatTimeCal = (inputValue) => {
-    // Aplicar el formato "minutos:segundos:milisegundos"
-    let formattedTime = inputValue.replace(/\D/g, ''); // Eliminar caracteres no numéricos
     if (formattedTime.length > 7) {
-      formattedTime = formattedTime.slice(0, 7); // Limitar a 6 caracteres
+      formattedTime = formattedTime.slice(0, 7); // Limitar a 7 caracteres
     }
-    formattedTime = formattedTime.replace(/(\d{2})(\d{2})(\d{2})/, '$1:$2:$3'); // Insertar los separadores
+    formattedTime = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$1:$2.$3'); // Insertar los separadores
     return formattedTime;
   };
 
