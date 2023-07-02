@@ -3,64 +3,58 @@ import './style.css';
 
 export default function App() {
   const initialValues = {
-    et1: null,
-    et2: null,
+    et1: '',
+    et2: '',
   };
-  const initialTimers = {
-    arranque1: null,
-    arranque2: null,
-    emision1: null,
-    emision2: null,
-    recepcion1: null,
-    recepcion2: null,
-    apertura1: null,
-    apertura2: null,
-    are1: null,
-    are2: null,
-    cierreint1: null,
-    cierreint2: null,
-    arramque12: null,
-    arramque22: null,
-    emision21: null,
-    emision22: null,
-    recepcion21: null,
-    recepcion22: null,
-    estado21: null,
-    estado22: null,
-    arranque1men: null,
-    arranque2men: null,
-    emision1men: null,
-    emision2men: null,
-    recepcion1men: null,
-    recepcion2men: null,
-    apertura1men: null,
-    apertura2men: null,
-    are1men: null,
-    are2men: null,
-    cierreint1men: null,
-    cierreint2men: null,
-    arramque12men: null,
-    arramque22men: null,
-    emision21men: null,
-    emision22men: null,
-    recepcion21men: null,
-    recepcion22men: null,
-    estado21men: null,
-    estado22men: null,
+  const initialValuesInput = {
+    arranque1: '',
+    arranque2: '',
+    emision1: '',
+    emision2: '',
+    recepcion1: '',
+    recepcion2: '',
+    apertura1: '',
+    apertura2: '',
+    are1: '',
+    are2: '',
+    cierreint1: '',
+    cierreint2: '',
+    arramque12: '',
+    arramque22: '',
+    emision21: '',
+    emision22: '',
+    recepcion21: '',
+    recepcion22: '',
+    estado21: '',
+    estado22: '',
+    arranque1men: '',
+    arranque2men: '',
+    emision1men: '',
+    emision2men: '',
+    recepcion1men: '',
+    recepcion2men: '',
+    apertura1men: '',
+    apertura2men: '',
+    are1men: '',
+    are2men: '',
+    cierreint1men: '',
+    cierreint2men: '',
+    arramque12men: '',
+    arramque22men: '',
+    emision21men: '',
+    emision22men: '',
+    recepcion21men: '',
+    recepcion22men: '',
+    estado21men: '',
+    estado22men: '',
   };
 
   const [values, setValues] = useState(initialValues);
 
-  const [timers, setTimers] = useState(initialTimers);
+  const [inputValues, setInputValues] = useState(initialValuesInput);
 
-  const handleChange = ({ target: { name, value } }) => {
-    setValues({ ...values, [name]: value });
-  };
-  const handleChangeTime = (e) => {
-    const inputValue = e.target.value;
-    const formattedTime = formatTime(inputValue);
-    setTimers({ ...timers, [e.target.name]: formattedTime });
-  };
+  const [valuesTime, setValuesTime] = useState(initialValuesInput);
+
   const formatTime = (inputValue) => {
     // Aplicar el formato "minutos:segundos:milisegundos"
     let formattedTime = inputValue.replace(/\D/g, ''); // Eliminar caracteres no numéricos
@@ -69,6 +63,42 @@ export default function App() {
     }
     formattedTime = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$1:$2.$3'); // Insertar los separadores
     return formattedTime;
+  };
+  const transformValue = (inputValue) => {
+    // Aplicar el formato "minutos:segundos:milisegundos"
+    let formattedTime = inputValue.replace(/\D/g, ''); // Eliminar caracteres no numéricos
+    if (formattedTime.length > 7) {
+      formatTime = formattedTime.slice(0, 7); // Limitar a 7 caracteres
+    }
+    formattedTimeNum;
+    if ((formattedTime.length = 7)) {
+      const tiempo = new Date();
+
+      const min = formattedTime.replace(/(\d{2})/, '$1');
+      const seg = formattedTime.replace(/(\d{2})(\d{2})/, '$2');
+      const miliseg = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$3');
+
+      tiempo.setMinutes(min);
+      tiempo.setSeconds(seg);
+      tiempo.setMilliseconds(miliseg);
+      return tiempo;
+    } else {
+      return '';
+    }
+  };
+
+  const handleChange = ({ target: { name, value } }) => {
+    setValues({ ...values, [name]: value });
+  };
+  const handleChangeTime = (e) => {
+    const inputValue = e.target.value;
+    const formattedTime = formatTime(inputValue);
+    setInputValues({ ...inputValues, [e.target.name]: formattedTime });
+  };
+  const onBlurChangeTime = (e) => {
+    const inputValue = e.target.value;
+    const valuetransform = transformValue(inputValue);
+    console.log(valuetransform);
   };
 
   /* useEffect(()=>{
@@ -108,15 +138,16 @@ export default function App() {
           </div>
           <div className="contenedorinput">
             <label>
-              ARRANQUE {values?.et1 !== null && (values?.et1).toUpperCase()}
+              ARRANQUE {values?.et1 !== '' && (values?.et1).toUpperCase()}
             </label>
             <input
               className="Input"
               type="text"
               name="arranque1"
               id="arranque1"
-              value={timers.arranque1}
+              value={inputValues.arranque1}
               onChange={handleChangeTime}
+              onBlur={onBlurChangeTime}
               className="Input"
               placeholder="MM : SS : MILISEG."
             ></input>
@@ -125,7 +156,7 @@ export default function App() {
         <div className="contenedorinput-2">
           <div className="contenedorinput">
             <label>
-              ARRANQUE {values?.et2 !== null && (values?.et2).toUpperCase()}{' '}
+              ARRANQUE {values?.et2 !== '' && (values?.et2).toUpperCase()}{' '}
             </label>
             <input
               className="Input"
@@ -151,7 +182,7 @@ export default function App() {
           </div>
           <div className="contenedorinput">
             <label>
-              EMISION {values?.et1 !== null && (values?.et1).toUpperCase()}
+              EMISION {values?.et1 !== '' && (values?.et1).toUpperCase()}
             </label>
             <input
               className="Input"
@@ -166,7 +197,7 @@ export default function App() {
         <div className="contenedorinput-2">
           <div className="contenedorinput">
             <label>
-              EMISION {values?.et2 !== null && (values?.et2).toUpperCase()}
+              EMISION {values?.et2 !== '' && (values?.et2).toUpperCase()}
             </label>
             <input
               className="Input"
@@ -186,27 +217,13 @@ export default function App() {
       <div className="contenedor">
         <div className="contenedorinput">
           <label>
-            RECEPCION {values?.et1 !== null && (values?.et1).toUpperCase()}
+            RECEPCION {values?.et1 !== '' && (values?.et1).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>
-            RECEPCION {values?.et2 !== null && (values?.et2).toUpperCase()}
-          </label>
-          <input className="Input"></input>
-        </div>
-      </div>
-      <div className="contenedor">
-        <div className="contenedorinput">
-          <label>
-            APERTURA {values?.et1 !== null && (values?.et1).toUpperCase()}
-          </label>
-          <input className="Input"></input>
-        </div>
-        <div className="contenedorinput">
-          <label>
-            APERTURA {values?.et2 !== null && (values?.et2).toUpperCase()}
+            RECEPCION {values?.et2 !== '' && (values?.et2).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
@@ -214,13 +231,13 @@ export default function App() {
       <div className="contenedor">
         <div className="contenedorinput">
           <label>
-            ARE ALARMA {values?.et1 !== null && (values?.et1).toUpperCase()}
+            APERTURA {values?.et1 !== '' && (values?.et1).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>
-            ARE ALARMA {values?.et2 !== null && (values?.et2).toUpperCase()}
+            APERTURA {values?.et2 !== '' && (values?.et2).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
@@ -228,13 +245,27 @@ export default function App() {
       <div className="contenedor">
         <div className="contenedorinput">
           <label>
-            CIERRE INT. {values?.et1 !== null && (values?.et1).toUpperCase()}
+            ARE ALARMA {values?.et1 !== '' && (values?.et1).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>
-            CIERRE INT. {values?.et2 !== null && (values?.et2).toUpperCase()}
+            ARE ALARMA {values?.et2 !== '' && (values?.et2).toUpperCase()}
+          </label>
+          <input className="Input"></input>
+        </div>
+      </div>
+      <div className="contenedor">
+        <div className="contenedorinput">
+          <label>
+            CIERRE INT. {values?.et1 !== '' && (values?.et1).toUpperCase()}
+          </label>
+          <input className="Input"></input>
+        </div>
+        <div className="contenedorinput">
+          <label>
+            CIERRE INT. {values?.et2 !== '' && (values?.et2).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
@@ -247,7 +278,7 @@ export default function App() {
           </div>
           <div className="contenedorinput">
             <label>
-              ARRANQUE {values?.et1 !== null && (values?.et1).toUpperCase()}
+              ARRANQUE {values?.et1 !== '' && (values?.et1).toUpperCase()}
             </label>
             <input className="Input" placeholder="MM : SS : MILISEG."></input>
           </div>
@@ -255,7 +286,7 @@ export default function App() {
         <div className="contenedorinput-2">
           <div className="contenedorinput">
             <label>
-              ARRANQUE {values?.et2 !== null && (values?.et2).toUpperCase()}
+              ARRANQUE {values?.et2 !== '' && (values?.et2).toUpperCase()}
             </label>
             <input className="Input" placeholder="MM : SS : MILISEG."></input>
           </div>
@@ -269,13 +300,13 @@ export default function App() {
         <div className="contenedorinput-2">
           <div className="contenedorinput">
             <label>
-              ESCALON {values?.et2 !== null && (values?.et2).toUpperCase()}
+              ESCALON {values?.et2 !== '' && (values?.et2).toUpperCase()}
             </label>
             <input className="Input"></input>
           </div>
           <div className="contenedorinput">
             <label>
-              EMISION {values?.et1 !== null && (values?.et1).toUpperCase()}
+              EMISION {values?.et1 !== '' && (values?.et1).toUpperCase()}
             </label>
             <input className="Input" placeholder="MM : SS : MILISEG."></input>
           </div>
@@ -283,7 +314,7 @@ export default function App() {
         <div className="contenedorinput-2">
           <div className="contenedorinput">
             <label>
-              EMISION {values?.et2 !== null && (values?.et2).toUpperCase()}
+              EMISION {values?.et2 !== '' && (values?.et2).toUpperCase()}
             </label>
             <input className="Input" placeholder="MM : SS : MILISEG."></input>
           </div>
@@ -296,13 +327,13 @@ export default function App() {
       <div className="contenedor">
         <div className="contenedorinput">
           <label>
-            RECEPCION {values?.et1 !== null && (values?.et1).toUpperCase()}
+            RECEPCION {values?.et1 !== '' && (values?.et1).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>
-            RECEPCION {values?.et2 !== null && (values?.et2).toUpperCase()}
+            RECEPCION {values?.et2 !== '' && (values?.et2).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
@@ -310,13 +341,13 @@ export default function App() {
       <div className="contenedor">
         <div className="contenedorinput">
           <label>
-            ESTADO INT. {values?.et1 !== null && (values?.et1).toUpperCase()}
+            ESTADO INT. {values?.et1 !== '' && (values?.et1).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
         <div className="contenedorinput">
           <label>
-            ESTADO INT. {values?.et2 !== null && (values?.et2).toUpperCase()}
+            ESTADO INT. {values?.et2 !== '' && (values?.et2).toUpperCase()}
           </label>
           <input className="Input"></input>
         </div>
