@@ -70,25 +70,21 @@ export default function App() {
     if (formattedTime.length > 7) {
       formatTime = formattedTime.slice(0, 7); // Limitar a 7 caracteres
     }
-    formattedTimeNum;
-    if ((formattedTime.length = 7)) {
-      const tiempo = new Date();
+    const tiempo = new Date();
 
-      const min = formattedTime.replace(/(\d{2})/, '$1');
-      const seg = formattedTime.replace(/(\d{2})(\d{2})/, '$2');
-      const miliseg = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$3');
+    const min = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$1');
+    const seg = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$2');
+    const miliseg = formattedTime.replace(/(\d{2})(\d{2})(\d{3})/, '$3');
 
-      tiempo.setMinutes(min);
-      tiempo.setSeconds(seg);
-      tiempo.setMilliseconds(miliseg);
-      return tiempo;
-    } else {
-      return '';
-    }
+    tiempo.setMinutes(Number(min));
+    tiempo.setSeconds(Number(seg));
+    tiempo.setMilliseconds(Number(miliseg));
+    return tiempo;
   };
 
-  const handleChange = ({ target: { name, value } }) => {
-    setValues({ ...values, [name]: value });
+  const handleChange = (e) => {
+    const input = e.target.value;
+    setValues(input);
   };
   const handleChangeTime = (e) => {
     const inputValue = e.target.value;
@@ -98,14 +94,15 @@ export default function App() {
   const onBlurChangeTime = (e) => {
     const inputValue = e.target.value;
     const valuetransform = transformValue(inputValue);
-    console.log(valuetransform);
+    setValuesTime({ ...valuesTime, [e.target.name]: valuetransform });
   };
 
   /* useEffect(()=>{
     setValues(values)
   }) */
 
-  console.log(values.et1);
+  console.log(valuesTime);
+  console.log(inputValues);
   return (
     <>
       <div className="contenedor">
